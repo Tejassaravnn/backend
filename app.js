@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var dev_db_url = 'mongodb://dbtest2:dbtest2@ds263520.mlab.com:63520/matchup-test';
 // var dev_db_url = 'mongodb://localhost:27017/events';
 // var url = 'mongodb://192.168.43.29:27017/events';
-var mongoDB = dev_db_url || process.env.MONGODB_URI;
+var mongoDB = dev_db_url || process.env.MONGOLAB_URI;
 
 mongoose.connect(mongoDB,{ useNewUrlParser: true });
 mongoose.Promise = global.Promise;
