@@ -8,8 +8,10 @@ exports.event_create = function (req, res) {
     var event = new Event({
         game: req.body.game,
         location: req.body.location,
+        time: req.body.time,
         role: req.body.role,
-        players_needed: req.body.players_needed
+        players_needed: req.body.players_needed,
+        count: req.body.count,
     });
 
     event.save(function (err) {
