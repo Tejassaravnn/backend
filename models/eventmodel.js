@@ -10,4 +10,4 @@ var EventSchema = new Schema({
     count:{type: String, required: true}
 });
 
-module.exports = mongoose.model('realevent2', EventSchema);
+module.exports = mongoose.model('realevent1', EventSchema);
