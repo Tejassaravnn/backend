@@ -5,14 +5,12 @@ exports.test = function (req, res) {
 };
 
 exports.event_create = function (req, res) {
-    var event = new Event(
-        {
-            game: req.body.game,
-            location: req.body.location,
-            role: req.body.role,
-            players_needed: req.body.players_needed
-        }
-    );
+    var event = new Event({
+        game: req.body.game,
+        location: req.body.location,
+        role: req.body.role,
+        players_needed: req.body.players_needed
+    });
 
     event.save(function (err) {
         if (err) {
@@ -30,9 +28,11 @@ exports.event_details = function (req, res) {
 };
 
 exports.event_update = function (req, res) {
-    Event.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, event) {
+    Event.findByIdAndUpdate(req.params.id, {
+        $set: req.body
+    }, function (err, event) {
         if (err) return next(err);
-        
+
         Event.find({}).then(function (events) {
             res.send(events);
         });
@@ -47,12 +47,13 @@ exports.event_delete = function (req, res) {
 };
 
 
-exports.event_allUsers = function(req, res){
-    Event.find({},function(err,events){
-        if(err)
+exports.event_allUsers = function (req, res) {
+    Event.find({}, function (err, events) {
+        if (err)
             return next(err);
-            Event.find({}).then(function (events) {
-                res.send(events);
-            });
-        });
-    };
+        res.send(events);
+        /* Event.find({}).then(function (events) {
+            res.send(events);
+        }); */
+    });
+};

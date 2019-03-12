@@ -5,9 +5,10 @@ var event = require('./routes/eventroutes');
 var app = express();
 
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb://dbtest2:dbtest2@ds263520.mlab.com:63520/matchup-test';
+// var dev_db_url = 'mongodb://dbtest2:dbtest2@ds263520.mlab.com:63520/matchup-test';
 // var dev_db_url = 'localhost:27017/matchup';
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
+var url = 'mongodb://localhost:27017/events';
+var mongoDB = process.env.MONGODB_URI || url;
 
 mongoose.connect(mongoDB,{ useNewUrlParser: true });
 mongoose.Promise = global.Promise;
