@@ -7,7 +7,7 @@ var EventSchema = new Schema({
     time: {type: String, required: true},
     role: {type: String, required: true, max: 100},
     players_needed: {type: String, required: true},
-    count:{type: String, required: true}
+    // count:{type: String, required: true}
 });
 
 module.exports = mongoose.model('realevent1', EventSchema);
